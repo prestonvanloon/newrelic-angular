@@ -1,0 +1,23 @@
+{
+  "name": "newrelic-angular",
+  "version": "0.0.0",
+  "authors": [
+    "Preston Van Loon <preston@machinepowered.com>"
+  ],
+  "description": "New Relic Browser Insights for Angular.js",
+  "main": "./dist/newrelic-angular.min.js",
+  "keywords": [
+    "New Relic"
+  ],
+  "license": "MIT",
+  "homepage": "http://machinepowered.com/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

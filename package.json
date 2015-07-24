@@ -1,0 +1,28 @@
+{
+  "name": "newrelic-angular",
+  "version": "0.0.0",
+  "description": "New Relic Browser Insights for Angular.js",
+  "main": "dist/newrelic-angular.min.js",
+  "dependencies": {
+    "angulartics": "^0.19.2"
+  },
+  "devDependencies": {
+    "angular": "^1.4.3",
+    "angular-mocks": "^1.4.3",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-karma": "0.0.4",
+    "gulp-uglify": "^1.2.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.3",
+    "karma-coverage": "^0.4.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "phantomjs": "^1.9.17"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Preston Van Loon <preston@machinepowered.com>",
+  "license": "MIT"
+}
