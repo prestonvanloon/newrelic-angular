@@ -34,7 +34,7 @@ function runTest(watch, done) {
 gulp.task('test', runTest.bind(null, false));
 gulp.task('test:watch', runTest.bind(null, true));
 
-gulp.task('dist', ['test'], function () {
+gulp.task('dist', ['lint', 'test'], function () {
   
   var files = config.dist.files;
 
