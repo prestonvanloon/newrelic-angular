@@ -1,6 +1,7 @@
 # newrelic-angular
 
 [![Build Status](https://travis-ci.org/prestonvanloon/newrelic-angular.svg)](https://travis-ci.org/prestonvanloon/newrelic-angular)
+[![npm version](https://badge.fury.io/js/newrelic-angular.svg)](http://badge.fury.io/js/newrelic-angular)
 
 A module to make reporting with New Relic Browser Insights easier for Angular!
 
