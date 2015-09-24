@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('newrelic-angular', [
   'angulartics',
   'angulartics.newrelic.insights',
@@ -56,12 +58,12 @@ angular.module('newrelic-angular', [
 })();
 
 (function (angular) {
-  	'use strict';
-	
-	angular.module('newrelic-angular.interceptor.http', []).factory('httpInterceptor', HttpInterceptorFactory)
-    .config(HttpInterceptorConfig)
-  ;
-	
+  'use strict';
+  
+  angular.module('newrelic-angular.interceptor.http', [])
+    .factory('httpInterceptor', HttpInterceptorFactory)
+    .config(HttpInterceptorConfig);
+    
   /**
    * Http Interceptor
    * Intercepts HTTP response and request errors and logs them to new relic
@@ -86,7 +88,7 @@ angular.module('newrelic-angular', [
     }
 
   }
-	
+  
   /**
    * Intercept any Http response or request errors
    *   and log them to new relic
@@ -95,9 +97,7 @@ angular.module('newrelic-angular', [
   function HttpInterceptorConfig($httpProvider) {
     $httpProvider.interceptors.push('httpInterceptor');
   }
-	
-	
-
+  
 })(window.angular);
 
 /**
