@@ -1,37 +1,25 @@
 var gulp = require('gulp');
-var karma = require('gulp-karma');
+var Server = require('karma').Server;
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
-var testFiles = [
-  'node_modules/angular/angular.js',
-  'node_modules/angular-mocks/angular-mocks.js',
-  'src/**/*.js',
-  'test/**/*.spec.js'
-];
+function runTest(watch, done) {
+  console.log(watch, done);
+  
+  var conf = {
+    configFile: __dirname + '/test/karma.conf.js',
+    singleRun: !watch,
+    autoWatch: watch
+  };
+  
+  return new Server(conf, done).start();
+}
 
-gulp.task('test', function () {
-  // Be sure to return the stream
-  return gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'test/karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', function (err) {
-      // Make sure failed tests cause gulp to exit non-zero
-      throw err;
-    });
-});
+gulp.task('test', runTest.bind(null, false));
+gulp.task('test:watch', runTest.bind(null, true));
 
-gulp.task('default', function () {
-  gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'test/karma.conf.js',
-      action: 'watch'
-    }));
-});
-
-gulp.task('dist', function () {
+gulp.task('dist', ['test'], function () {
+  
   var files = [
     'src/**/*.js',
     'node_modules/angulartics/src/angulartics.js',
@@ -47,3 +35,6 @@ gulp.task('dist', function () {
     .pipe(concat('newrelic-angular.js'))
     .pipe(gulp.dest('dist'));
 });
+
+
+gulp.task('default', ['test:watch']);
