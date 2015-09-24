@@ -1,7 +1,8 @@
 # newrelic-angular
 
-A module to make reporting with New Relic Browser Insights easier for Angular!
+[![Build Status](https://travis-ci.org/prestonvanloon/newrelic-angular.svg)](https://travis-ci.org/prestonvanloon/newrelic-angular)
 
+A module to make reporting with New Relic Browser Insights easier for Angular!
 
 ### Features
 
