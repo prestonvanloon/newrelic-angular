@@ -1,49 +1,62 @@
 var gulp = require('gulp');
-var karma = require('gulp-karma');
+var Server = require('karma').Server;
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var eslint = require('gulp-eslint');
 
-var testFiles = [
-  'node_modules/angular/angular.js',
-  'node_modules/angular-mocks/angular-mocks.js',
-  'src/**/*.js',
-  'test/**/*.spec.js'
-];
+var config = {
+  lint: {
+    src: ['src/**/*.js', 'test/**/*.spec.js']
+  },
+  dist: {
+    files: [
+      'src/**/*.js',
+      'node_modules/angulartics/src/angulartics.js',
+      'node_modules/angulartics/src/angulartics-newrelic-insights.js'
+    ],
+    concat: 'newrelic-angular.js',
+    min: 'newrelic-angular.min.js'
+  }
+};
 
-gulp.task('test', function () {
-  // Be sure to return the stream
-  return gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'test/karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', function (err) {
-      // Make sure failed tests cause gulp to exit non-zero
-      throw err;
-    });
-});
 
-gulp.task('default', function () {
-  gulp.src(testFiles)
-    .pipe(karma({
-      configFile: 'test/karma.conf.js',
-      action: 'watch'
-    }));
-});
+function runTest(watch, done) {
+  
+  var conf = {
+    configFile: __dirname + '/test/karma.conf.js',
+    singleRun: !watch,
+    autoWatch: watch
+  };
+  
+  return new Server(conf, done).start();
+}
 
-gulp.task('dist', function () {
-  var files = [
-    'src/**/*.js',
-    'node_modules/angulartics/src/angulartics.js',
-    'node_modules/angulartics/src/angulartics-newrelic-insights.js'
-  ];
+gulp.task('test', runTest.bind(null, false));
+gulp.task('test:watch', runTest.bind(null, true));
+
+gulp.task('dist', ['lint', 'test'], function () {
+  
+  var files = config.dist.files;
 
   gulp.src(files)
-    .pipe(concat('newrelic-angular.min.js'))
+    .pipe(concat(config.dist.min))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
 
   gulp.src(files)
-    .pipe(concat('newrelic-angular.js'))
+    .pipe(concat(config.dist.concat))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('lint', function(){
+  return gulp.src(config.lint.src)
+      .pipe(eslint())
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError());
+});
+
+gulp.task('watch', function(){
+  gulp.watch(config.lint.src, ['lint', 'test']);
+});
+
+gulp.task('default', ['watch']);

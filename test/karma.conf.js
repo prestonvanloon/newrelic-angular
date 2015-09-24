@@ -7,11 +7,9 @@ module.exports = function(config) {
   'use strict';
 
   config.set({
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
-
+    
     // base path, that will be used to resolve files and exclude
-    basePath: '',
+    basePath: '../',
 
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
@@ -21,6 +19,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/phantomjs-polyfill/bind-polyfill.js', // polyfill missing es5 Function.prototype.bind support in phantomjs
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'src/**/*.js',
+      'test/**/*.spec.js'
     ],
 
     // list of files / patterns to exclude
@@ -49,10 +52,6 @@ module.exports = function(config) {
       'karma-coverage'
     ],
 
-    // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
-    singleRun: false,
-
     colors: true,
 
     // level of logging
@@ -69,12 +68,12 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     preprocessors: {
-      '../src/**/*.js': ['coverage']
+      'src/**/*.js': ['coverage']
     },
 
     coverageReporter: {
       type: 'html',
-      dir: 'coverage/'
+      dir: 'test/coverage/'
     },
 
 
