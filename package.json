@@ -1,6 +1,6 @@
 {
   "name": "newrelic-angular",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "New Relic Browser Insights for Angular.js",
   "main": "dist/newrelic-angular.min.js",
   "dependencies": {
