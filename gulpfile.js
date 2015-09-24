@@ -4,8 +4,6 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 function runTest(watch, done) {
-  console.log(watch, done);
-  
   var conf = {
     configFile: __dirname + '/test/karma.conf.js',
     singleRun: !watch,
