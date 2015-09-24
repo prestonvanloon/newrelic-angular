@@ -1,12 +1,18 @@
 env:
   node: true
-
+  jasmine: true
+  
+globals:
+  angular: true
+  window: true
+  beforeEach: true
+  inject: true
+  
 rules:
-  indent: 2
+  indent: [2, 2]
   brace-style: [2, "1tbs"]
   comma-style: [2, "last"]
   default-case: 2
-  func-style: [2, "declaration"]
   no-floating-decimal: 2
   no-nested-ternary: 2
   no-undefined: 2
@@ -26,7 +32,7 @@ rules:
   eqeqeq: [2, "allow-null"]
   no-empty: 2
   no-underscore-dangle: 0
-  no-use-before-define: 2
+  no-use-before-define: [2, "nofunc"]
   no-obj-calls: 2
   no-unused-vars: [0, {"vars": "local", "args": "after-used"}]
   new-cap: 2
