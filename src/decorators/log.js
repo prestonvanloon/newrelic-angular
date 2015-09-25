@@ -23,10 +23,12 @@
       function decorateErrorFunction(originalFn) {
         
         var fn = function() {
-  
+          
           if (angular.isDefined($window.newrelic)) {
-            for (var arg in Array.prototype.slice.call(arguments)) {
-              if (arguments[arg] instanceof Error === false) {
+            
+            for (var i = 0, len = arguments.length, arg; i < len; i++) {
+              arg = arguments[i];
+              if (arg instanceof Error === false) {
                 arg = argToErrorObject(arg);
               }
               $window.newrelic.noticeError(arg); // Report to NR
