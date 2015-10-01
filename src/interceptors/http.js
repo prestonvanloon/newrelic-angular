@@ -2,7 +2,7 @@
   (function(angular) {
     
     angular.module('newrelic-angular.interceptor.http', [])
-      .factory('httpInterceptor', HttpInterceptorFactory)
+      .provider('httpInterceptor', HttpInterceptorProvider)
       .config(HttpInterceptorConfig);
       
     /**
@@ -12,27 +12,48 @@
      * @param {Object} $log
      * @return Object
      */
-    HttpInterceptorFactory.$inject = ['$q', '$log'];
-    function HttpInterceptorFactory($q, $log) {
-  
-      // Intercept request and response errors
-      return {
-        requestError: logAndReturnError.bind(null, 'request'),
-        responseError: logAndReturnError.bind(null, 'response')
-      };
+    
+    function HttpInterceptorProvider() {
+       
+      var statusesToIgnore = [];
       
-     /**
-      * Log and and reject promise
-      * @param {String} httpType response or request
-      * @param {Object} rejection contains $http parameter configuration values
-      * @return {Promise} promise
-      */
-      function logAndReturnError(httpType, rejection) {
-        var config = rejection.config || {};
-        var err = 'bad ' + config.method + ' ' + httpType + ' ' + rejection.config.url;
-        $log.error(new Error(err));
-        return $q.reject(rejection);
+      this.setStatusesToIgnore = setStatusesToIgnore;
+      
+      function setStatusesToIgnore(statuses) {
+        statusesToIgnore = statuses || [];
       }
+      
+      function shouldIgnoreStatus(status) {
+        status = +status;
+        return status && statusesToIgnore.indexOf(status) > -1;
+      }
+      
+      function HttpInterceptorFactory($q, $log) {
+        
+        // Intercept request and response errors
+        return {
+          requestError: logAndReturnError.bind(null, 'request'),
+          responseError: logAndReturnError.bind(null, 'response')
+        };
+        
+        /**
+        * Log and and reject promise
+        * @param {String} httpType response or request
+        * @param {Object} rejection contains $http parameter configuration values
+        * @return {Promise} promise
+        */
+        function logAndReturnError(httpType, rejection) {
+          var config = rejection.config || {};
+          
+          if( ! shouldIgnoreStatus(rejection.status) ) {
+            var err = 'bad ' + config.method + ' ' + httpType + ' ' + rejection.config.url;
+            $log.error(new Error(err));
+          }
+          return $q.reject(rejection);
+        }
+      }
+      
+      this.$get = ['$q', '$log', HttpInterceptorFactory];
   
     }
     
