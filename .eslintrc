@@ -48,3 +48,4 @@ rules:
   quotes: [1, "single", "avoid-escape"]
   no-unreachable: 2
   eol-last: 1
+  angular/window-service: 1
