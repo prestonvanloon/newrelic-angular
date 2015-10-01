@@ -26,10 +26,10 @@
       
       beforeEach(module('newrelic-angular.interceptor.http'));
       
-      describe('when using default provider', function(){
+      describe('when using default provider', function() {
         
         beforeEach(inject(function(_$log_, _$window_, _httpInterceptor_) {
-           $log = _$log_;
+          $log = _$log_;
           $window = _$window_;
           httpInterceptor = _httpInterceptor_;
         }));
@@ -44,8 +44,8 @@
           expect($log.error.logs.length).toBe(1);
         });
         
-        it('Should not ignore 400, 401, 403, 404, 419 statuses', function(){
-          statusesToIgnore.forEach(function(status){
+        it('Should not ignore 400, 401, 403, 404, 419 statuses', function() {
+          statusesToIgnore.forEach(function(status) {
             unauthorizedRequest.status = status;
             httpInterceptor.responseError( unauthorizedRequest );
           });
@@ -54,9 +54,9 @@
         
       });
       
-      describe('when setting provider statusToIgnore list', function(){
+      describe('when setting provider statusToIgnore list', function() {
         
-        beforeEach(module(function(httpInterceptorProvider){
+        beforeEach(module(function(httpInterceptorProvider) {
           httpInterceptorProvider.setStatusesToIgnore(statusesToIgnore);
         }));
         
@@ -66,17 +66,17 @@
           httpInterceptor = _httpInterceptor_;
         }));
         
-        it('Should ignore 400, 401, 403, 404, 419 statuses', function(){
-          statusesToIgnore.forEach(function(status){
+        it('Should ignore 400, 401, 403, 404, 419 statuses', function() {
+          statusesToIgnore.forEach(function(status) {
             unauthorizedRequest.status = status;
             httpInterceptor.responseError( unauthorizedRequest );
           });
           expect($log.error.logs.length).toBe(0);
         });
         
-        it('Should log a 500 message', function(){
+        it('Should log a 500 message', function() {
           httpInterceptor.responseError( errorRequest );
-            expect($log.error.logs.length).toBe(1);
+          expect($log.error.logs.length).toBe(1);
         });
       });
       

@@ -45,7 +45,7 @@
         function logAndReturnError(httpType, rejection) {
           var config = rejection.config || {};
           
-          if( ! shouldIgnoreStatus(rejection.status) ) {
+          if ( ! shouldIgnoreStatus(rejection.status) ) {
             var err = 'bad ' + config.method + ' ' + httpType + ' ' + rejection.config.url;
             $log.error(new Error(err));
           }
