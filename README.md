@@ -14,6 +14,10 @@ A module to make reporting with New Relic Browser Insights easier for Angular!
 
 ### How to
 
+Get it from npm
+
+``` npm install --save newrelic-angular ```
+
 Get it from bower
 
 ``` bower install --save newrelic-angular ```
