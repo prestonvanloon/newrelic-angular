@@ -24,7 +24,7 @@
       }
 
       function shouldIgnoreStatus(status) {
-        return isFinite(status) && statusesToIgnore.indexOf(status) > -1;
+        return status && isFinite(status) && statusesToIgnore.indexOf(status) > -1;
       }
 
       function HttpInterceptorFactory($q, $log) {
