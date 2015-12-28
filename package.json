@@ -4,7 +4,7 @@
   "description": "New Relic Browser Insights for Angular.js",
   "main": "dist/newrelic-angular.js",
   "dependencies": {
-    "angulartics": "^0.20.2"
+    "angulartics": "^1.0.0"
   },
   "devDependencies": {
     "angular": "^1.4.3",
