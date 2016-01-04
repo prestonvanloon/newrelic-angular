@@ -18,7 +18,7 @@
     "karma": "^0.13.10",
     "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.3",
     "phantomjs": "^1.9.17",
     "phantomjs-polyfill": "0.0.1"
   },
