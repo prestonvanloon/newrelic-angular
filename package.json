@@ -1,9 +1,11 @@
 {
   "name": "newrelic-angular",
   "description": "New Relic Browser Insights for Angular.js",
-  "main": "dist/newrelic-angular.js",
+  "main": "lib/module.js",
+  "version": "0.2.0",
   "dependencies": {
-    "angulartics": "^1.0.0"
+    "angulartics": "^1.0.3",
+    "angulartics-newrelic-insights": "^0.1.0"
   },
   "devDependencies": {
     "angular": "^1.4.3",
