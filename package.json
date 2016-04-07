@@ -6,7 +6,7 @@
     "angulartics": "^1.0.0"
   },
   "devDependencies": {
-    "angular": "^1.4.3",
+    "angular": "^1.5.3",
     "angular-mocks": "^1.5.3",
     "eslint-plugin-angular": "^1.0.0",
     "gulp": "^3.9.0",
