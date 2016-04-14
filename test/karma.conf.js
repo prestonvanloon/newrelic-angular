@@ -7,7 +7,7 @@ module.exports = function(config) {
   'use strict';
 
   config.set({
-    
+
     // base path, that will be used to resolve files and exclude
     basePath: '../',
 
@@ -49,7 +49,8 @@ module.exports = function(config) {
     plugins: [
       "karma-phantomjs-launcher",
       "karma-jasmine",
-      'karma-coverage'
+      'karma-coverage',
+      'karma-coveralls'
     ],
 
     colors: true,
@@ -65,15 +66,15 @@ module.exports = function(config) {
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
 
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'coveralls'],
 
     preprocessors: {
       'src/**/*.js': ['coverage']
     },
 
     coverageReporter: {
-      type: 'html',
-      dir: 'test/coverage/'
+      type: 'lcov',
+      dir: 'coverage/'
     },
 
 

@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/prestonvanloon/newrelic-angular.svg)](https://travis-ci.org/prestonvanloon/newrelic-angular)
 [![npm version](https://badge.fury.io/js/newrelic-angular.svg)](http://badge.fury.io/js/newrelic-angular)
 [![Bower version](https://badge.fury.io/bo/newrelic-angular.svg)](http://badge.fury.io/bo/newrelic-angular)
+[![Coverage Status](https://coveralls.io/repos/github/prestonvanloon/newrelic-angular/badge.svg?branch=master)](https://coveralls.io/github/prestonvanloon/newrelic-angular?branch=master)
 
 A module to make reporting with New Relic Browser Insights easier for Angular!
 
