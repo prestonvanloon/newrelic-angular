@@ -1,13 +1,13 @@
 env:
   node: true
   jasmine: true
-  
+
 globals:
   angular: true
   window: true
   beforeEach: true
   inject: true
-  
+
 rules:
   indent: [2, 2]
   brace-style: [2, "1tbs"]
@@ -18,7 +18,7 @@ rules:
   no-undefined: 2
   radix: 2
   space-before-function-paren: [2, "never"]
-  space-after-keywords: [2, "always"]
+  keyword-spacing: [2]
   space-before-blocks: 2
   spaced-comment: [2, "always", { exceptions: ["-"]}]
   valid-jsdoc: [1, { requireReturn: false, prefer: { return": "returns" }}]
