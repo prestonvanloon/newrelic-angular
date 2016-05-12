@@ -2,17 +2,25 @@ sudo: false
 language: node_js
 cache:
   directories:
-    - node_modules
+  - node_modules
 notifications:
   email: false
 node_js:
-  - '4'
+- '4'
 before_install:
-  - npm i -g npm@^2.0.0
+- npm i -g npm@^2.0.0
 before_script:
-  - npm prune
+- npm prune
 after_success:
-  - npm run semantic-release
+- npm run semantic-release
 branches:
   except:
-    - "/^v\\d+\\.\\d+\\.\\d+$/"
+  - /^v\d+\.\d+\.\d+$/
+deploy:
+  provider: npm
+  email: preston@machinepowered.com
+  api_key:
+    secure: xCZmwir9qa5sqg7piu9SIBh24hsaryRt9LIDg7MyXIonbAkC9d5XfeglawN3gFTiap8/cT+FDdMVlgKRsyfZh9B7maH8STFNzBKa5zWdfo95lS4vGQaNx0XeP/AOncuwefsa2BE3TUylNDVDM29Idoq57z1r54jFc6FnnONzz5gdLl0wbgf9JHRtPrqjr9y8VtHGLDMbT97dhQqhrgNLdow4g5qifXkJBabqtpz+9v7oEm43aLKyNAanR4TkrXBbZN/N8VBCHv/meNvN18Op6/TqOkxYPraGm14e5mofdQN/58PaV30+0doIUCwl2mP2prTyjLO08KiTn3Ak0mWfSy+1e7Y5E7Y48fob2wxDoB5cmixH0818TxSx2ef7qgiVt2BjdvawzvEPU1IVT02E2VNkEEUbZnqme0/kQyx7EpW5DbHrliZRfEJ6gKrxtpUFXaam87S8PXGO8ic2YB7Bik6D0OxUDqiysyYv4YTdtFQt+9tk+j2pF5l155sjmM+QmWercWyqjgecUAnMPNAl5n/Sdvk0PPcqc/oUQu4WwrynRvj1hT/7v6OZV2XmdK9wHNZYdztX/OmO/OEkADvMoAGCo06uwTDql2TcXGUuJFM+dgEeVt4etBh/1FyIgiM9G85L1kHsmJkW9URERHTFVZrTXEYAZ2h0G+d5BjhZ9lA=
+  on:
+    tags: true
+    repo: prestonvanloon/newrelic-angular
