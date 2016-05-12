@@ -39,7 +39,12 @@
           originalFn.apply(null, arguments);
         };
         
-        fn.logs = []; // Restore logs
+        // Restore any original properties 
+        Object.keys(originalFn).forEach(function(key) {
+          if(originalFn.hasOwnProperty(key)) {
+            fn[key] = originalFn[key];
+          }
+        });
         
         return fn;
       }
