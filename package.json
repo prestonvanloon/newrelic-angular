@@ -4,7 +4,7 @@
   "main": "lib/module.js",
   "version": "0.2.1",
   "dependencies": {
-    "angulartics": "^1.0.3",
+    "angulartics": "^1.1.0",
     "angulartics-newrelic-insights": "^0.1.0"
   },
   "devDependencies": {
