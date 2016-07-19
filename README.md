@@ -31,6 +31,14 @@ angular.module('myApp', ['newrelic-angular']);
 
 And add ```newrelic-angular.min.js``` to your project.
 
+(Optional) Ignore certain statuses
+
+```javascript
+angular.module('myApp', ['newrelic-angular'])
+  .config(function(httpInterceptorProvider) {
+   httpInterceptorProvider.setStatusesToIgnore([-1, 418]);
+  });
+```
 
 ### Why?
 
