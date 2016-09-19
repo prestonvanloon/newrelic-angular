@@ -10,7 +10,7 @@
   "devDependencies": {
     "angular": "^1.5.3",
     "angular-mocks": "^1.5.3",
-    "eslint-plugin-angular": "^1.0.0",
+    "eslint-plugin-angular": "^1.4.1",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^2.0.0",
