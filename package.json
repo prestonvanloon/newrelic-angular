@@ -16,7 +16,7 @@
     "gulp-eslint": "^2.0.0",
     "gulp-uglify": "^2.0.1",
     "jasmine-core": "^2.3.4",
-    "karma": "^0.13.10",
+    "karma": "^1.4.0",
     "karma-coverage": "^1.0.0",
     "karma-coveralls": "^1.1.2",
     "karma-jasmine": "^1.0.2",
