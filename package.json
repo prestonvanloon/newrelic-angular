@@ -2,7 +2,7 @@
   "name": "newrelic-angular",
   "description": "New Relic Browser Insights for Angular.js",
   "main": "dist/newrelic-angular.js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "dependencies": {
     "angulartics": "~1.0.0",
     "angulartics-newrelic-insights": "^0.1.0"
