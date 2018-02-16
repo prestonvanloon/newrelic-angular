@@ -45,7 +45,7 @@
           var config = rejection.config || {};
 
           if ( ! shouldIgnoreStatus(rejection.status) ) {
-            var err = 'bad ' + config.method + ' ' + httpType + ' ' + rejection.config.url;
+            var err = 'bad ' + config.method + ' ' + httpType + ' ' + config.url;
             $log.error(new Error(err));
           }
           return $q.reject(rejection);
