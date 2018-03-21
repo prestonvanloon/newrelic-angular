@@ -4,7 +4,7 @@
   "main": "dist/newrelic-angular.js",
   "version": "0.2.2",
   "dependencies": {
-    "angulartics": "~1.0.0",
+    "angulartics": "~1.4.0",
     "angulartics-newrelic-insights": "^0.1.0"
   },
   "devDependencies": {
